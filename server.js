@@ -19,30 +19,16 @@ const {notes} = require('./data/notes')
 
 
 
-function createNote(body, notesArr) {
-    const note = body;
-    notesArr.push(note)
-    fs.writeFileSync(
-        path.join(__dirname, './data/notes.json'),
-        JSON.stringify({notes: notesArr}, null, 2)
-    );
-    return note;
-}
-
-
-
-app.get('/api/notes', (req, res) => {
-    res.json(notes)
-});
 app.post('/api/notes', (req, res) => {
-    const note = createNote(req.body, notes)
-    req.body.id = notes.length.toString();
     res.json(note)
 });
 //landing page display
 app.get('/', (req,res) => {
-    res.sendFile(path.join(__dirname, './public/index.html'))
-})
+    res.sendFile(path.join(__dirname, '/public/index.html'))
+});
+app.get('/notes', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/notes.html'))
+});
 app.listen(PORT, () => {
     console.log(`API server now on port ${PORT}`);
 })
