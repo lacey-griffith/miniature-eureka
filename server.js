@@ -20,7 +20,10 @@ const {notes} = require('./data/notes')
 
 
 app.post('/api/notes', (req, res) => {
-    res.json(note)
+    // console.log(req.body)
+    // req.body.id = notes.length.toString();
+    // saveNote(req.body)
+    // //res.json(note)
 });
 //landing page display
 app.get('/', (req,res) => {
