@@ -15,7 +15,7 @@ Starter code provided by the Bootcamp, back end server code written by Lacey Gri
 If you have questions or would like to contact me about this project, please email me at lacey.griffith04@gmail.com.
 
 ## Site Images
-![Site Image](./images/landing.png)
+![Site Image](images/landing.png)
 ![Site Image](images/notes_example.png)
 ![Site Image](images/notes_example2.png)
 ![Site Image](images/notes_example3.png)
