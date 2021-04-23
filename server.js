@@ -1,5 +1,5 @@
 const express = require('express')
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3001;
 
 const app = express()
 
@@ -20,10 +20,12 @@ const {notes} = require('./data/notes')
 
 
 app.post('/api/notes', (req, res) => {
-    // console.log(req.body)
-    // req.body.id = notes.length.toString();
-    // saveNote(req.body)
-    // //res.json(note)
+    req.body.id = Number((notes.length + 1).toString())
+    const newNote = req.body
+    notes.push(newNote)
+    console.log(newNote)
+
+    res.json(newNote)
 });
 //landing page display
 app.get('/', (req,res) => {
@@ -32,6 +34,9 @@ app.get('/', (req,res) => {
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/notes.html'))
 });
+app.get('/api/notes', (req, res) => {
+    res.json(notes)
+})
 app.listen(PORT, () => {
     console.log(`API server now on port ${PORT}`);
 })
